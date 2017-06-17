@@ -10,7 +10,7 @@ namespace Ogniskownik
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            Title = "Initial commit";
             // Set our view from the "main" layout resource
             // SetContentView (Resource.Layout.Main);
         }
