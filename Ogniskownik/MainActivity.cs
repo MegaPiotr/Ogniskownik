@@ -8,56 +8,113 @@ using Android.Widget;
 using Android.OS;
 using System.IO;
 using System.Collections.Generic;
+using Android.Support.V4.View;
+using Android.Support.V4.App;
+using Android.Support.V7.App;
+using MyToolbar = Android.Support.V7.Widget.Toolbar;
+using MyDrawer = Android.Support.V7.App.ActionBarDrawerToggle;
+using MyDrawerLayout = Android.Support.V4.Widget.DrawerLayout;
 
 namespace Ogniskownik
 {
-    [Activity(Label = "Ogniskownik", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    [Activity(Label = "Ogniskownik", MainLauncher = true, Icon = "@drawable/icon", Theme ="@style/MyDrawerTheme")]
+    public class MainActivity : AppCompatActivity
     {
+        private ViewPager mViewPager;
+        private MyNavigationDrawer mDrawer;
+        private MyDrawerLayout mDrawerLayout;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            var toolbar = FindViewById<MyToolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
 
-            this.ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            mDrawerLayout = FindViewById<MyDrawerLayout>(Resource.Id.drawer_layout);
+            mDrawer = new MyNavigationDrawer(this, mDrawerLayout, Resource.String.Menu, Resource.String.LibraryName);
 
-            AddTab("Autorzy", Resource.Drawable.aaa, new ByAuthorFragment());
-            AddTab("Piosenki", Resource.Drawable.aaa, new ByTitleFragment());
+            mDrawerLayout.AddDrawerListener(mDrawer);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            SupportActionBar.SetHomeButtonEnabled(true);
+            mDrawer.SyncState();
 
-            if (bundle != null)
-                this.ActionBar.SelectTab(this.ActionBar.GetTabAt(bundle.GetInt("tab")));
+            if (bundle == null)
+                SupportActionBar.SetTitle(Resource.String.LibraryName);
+            else
+                OnRecreate(bundle);
 
+            mViewPager = FindViewById<ViewPager>(Resource.Id.pager);
+            mViewPager.Adapter = new MyPagerAdapter(SupportFragmentManager);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            mDrawer.OnOptionsItemSelected(item);
+            return base.OnOptionsItemSelected(item);
+        }
+
+        private void OnRecreate(Bundle bundle)
+        {
+            if(bundle.GetBoolean("IsOpen"))
+                SupportActionBar.SetTitle(Resource.String.Menu);
+            else
+                SupportActionBar.SetTitle(Resource.String.LibraryName);
         }
 
         protected override void OnSaveInstanceState(Bundle outState)
         {
-            outState.PutInt("tab", this.ActionBar.SelectedNavigationIndex);
-
+            if (mDrawerLayout.IsDrawerOpen((int)GravityFlags.Left))
+                outState.PutBoolean("IsOpen", true);
+            else
+                outState.PutBoolean("IsOpen", false);
             base.OnSaveInstanceState(outState);
         }
 
-        void AddTab(string tabText, int iconResourceId, Fragment view)
+        protected override void OnPostCreate(Bundle savedInstanceState)
         {
-            var tab = this.ActionBar.NewTab();
-            tab.SetText(tabText);
-            //tab.SetIcon(Resource.Drawable.aaa);
-
-            // must set event handler before adding tab
-            tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
-            {
-                var fragment = this.FragmentManager.FindFragmentById(Resource.Id.fragmentContainer);
-                if (fragment != null)
-                    e.FragmentTransaction.Remove(fragment);
-                e.FragmentTransaction.Add(Resource.Id.fragmentContainer, view);
-            };
-            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e) {
-                e.FragmentTransaction.Remove(view);
-            };
-
-            this.ActionBar.AddTab(tab);
+            base.OnPostCreate(savedInstanceState);
+            mDrawer.SyncState();
         }
+    }
+    public class MyPagerAdapter : FragmentPagerAdapter
+    {
+        public MyPagerAdapter(Android.Support.V4.App.FragmentManager fm):base(fm){}
+
+        public override int Count { get { return 2; }}
+
+        public override Android.Support.V4.App.Fragment GetItem(int position)
+        {
+            if (position == 0) return new ByAuthorFragment();
+            else return new ByTitleFragment();
+        }
+    }
+    public class MyNavigationDrawer:MyDrawer
+    {
+        private int mOpenRes;
+        private int mCloseRes;
+        private AppCompatActivity mActivity;
+        public MyNavigationDrawer(AppCompatActivity activity, MyDrawerLayout layout, int openRes, int closeRes):base(activity,layout,openRes,closeRes)
+        {
+            mOpenRes = openRes;
+            mCloseRes = closeRes;
+            mActivity = activity;
+        }
+        public override void OnDrawerOpened(View drawerView)
+        {
+            mActivity.SupportActionBar.SetTitle(mOpenRes);
+            base.OnDrawerOpened(drawerView);
+        }
+        public override void OnDrawerClosed(View drawerView)
+        {
+            mActivity.SupportActionBar.SetTitle(mCloseRes);
+            base.OnDrawerClosed(drawerView);
+        }
+        public override void OnDrawerSlide(View drawerView, float slideOffset)
+        {
+            base.OnDrawerSlide(drawerView,slideOffset);
+        }
+
     }
 }
 

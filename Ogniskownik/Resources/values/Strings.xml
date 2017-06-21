@@ -2,4 +2,6 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">Ogniskownik</string>
+    <string name="LibraryName">Biblioteka</string>
+    <string name="Menu">Menu</string>
 </resources>
