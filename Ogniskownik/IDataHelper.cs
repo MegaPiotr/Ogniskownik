@@ -18,5 +18,6 @@ namespace Ogniskownik
         List<Song> getSongs(string author);
         List<Song> getSongs();
         string getSongInfo(string author, string title);
+        string getSongInfo(Song song);
     }
 }

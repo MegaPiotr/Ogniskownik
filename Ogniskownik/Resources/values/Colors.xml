@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="Toolbar">#000000</color>
+  <color name="ToolbarText">#ffffff</color>
+  <color name="Content">#3f4959</color>
+  <color name="Text">#ffffff</color>
+  <color name="Text2">#2dc61f</color>
+  <color name="ChordsText">#ffffff</color>
+  <color name="Drawer">#09C184</color>
+  <color name="Chords">#000000</color>
+</resources>

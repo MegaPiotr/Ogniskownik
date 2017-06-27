@@ -38,6 +38,11 @@ namespace Ogniskownik
             return nodes.Value;
         }
 
+        public string getSongInfo(Song song)
+        {
+            return getSongInfo(song.Author, song.Title);
+        }
+
         public List<Song> getSongs(string author)
         {
             List<Song> songs = new List<Song>();

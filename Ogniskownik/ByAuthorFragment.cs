@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using System.IO;
 using Android.Graphics;
+using Android.Support.V4.View;
 
 namespace Ogniskownik
 {
@@ -20,12 +21,16 @@ namespace Ogniskownik
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            if(savedInstanceState!=null)
+            {
 
+            }
             // Create your fragment here
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            Log.Info("MOJE", "CREATE AUT START");
             base.OnCreateView(inflater, container, savedInstanceState);
             var view = inflater.Inflate(Resource.Layout.ListViewLayout, container, false);
 
@@ -38,6 +43,13 @@ namespace Ogniskownik
             ListView listView = view.FindViewById<ListView>(Resource.Id.listView);
             var adapter = new SingleArrayAdapter(this.Activity,authors);
             listView.Adapter = adapter;
+            listView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => {
+                ViewPager pager = this.Activity.FindViewById<ViewPager>(Resource.Id.pager);
+                MyPagerAdapter myAdapter =(MyPagerAdapter)pager.Adapter;
+                pager.SetCurrentItem(1, true);
+                myAdapter.SongFilter = authors[e.Position];
+            };
+            Log.Info("MOJE", "CREATE ACT END");
             return view;
         }
     }
@@ -51,24 +63,9 @@ namespace Ogniskownik
             mdata = data;
             mcontext = context;
         }
-        public override string this[int position]
-        {
-            get
-            {
-                return mdata[position];
-            }
-        }
-        public override int Count
-        {
-            get
-            {
-                return mdata.Count;
-            }
-        }
-        public override long GetItemId(int position)
-        {
-            return position;
-        }
+        public override string this[int position]{get{return mdata[position];}}
+        public override int Count{get{return mdata.Count;}}
+        public override long GetItemId(int position){return position;}
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {

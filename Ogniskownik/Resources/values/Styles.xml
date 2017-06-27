@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <style name="MyDrawerTheme" parent="Theme.AppCompat.NoActionBar">
-    <item name="colorPrimary">#123456</item>
+    <item name="colorPrimary">@color/Toolbar</item>
     <item name="drawerArrowStyle">@style/MyDrawerArrowStyle</item>
   </style>
   <style name="MyDrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
     <item name="spinBars">true</item>
-    <item name="color">#00ff00</item>
+    <item name="color">@color/ToolbarText</item>
   </style>
 </resources>

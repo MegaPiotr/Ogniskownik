@@ -14,6 +14,8 @@ using Android.Support.V7.App;
 using MyToolbar = Android.Support.V7.Widget.Toolbar;
 using MyDrawer = Android.Support.V7.App.ActionBarDrawerToggle;
 using MyDrawerLayout = Android.Support.V4.Widget.DrawerLayout;
+using Android.Util;
+using Java.Lang;
 
 namespace Ogniskownik
 {
@@ -26,6 +28,7 @@ namespace Ogniskownik
 
         protected override void OnCreate(Bundle bundle)
         {
+            Log.Info("MOJE", "CREATE ACT START");
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
             var toolbar = FindViewById<MyToolbar>(Resource.Id.toolbar);
@@ -46,6 +49,7 @@ namespace Ogniskownik
 
             mViewPager = FindViewById<ViewPager>(Resource.Id.pager);
             mViewPager.Adapter = new MyPagerAdapter(SupportFragmentManager);
+            Log.Info("MOJE", "CREATE ACT END");
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -79,14 +83,46 @@ namespace Ogniskownik
     }
     public class MyPagerAdapter : FragmentPagerAdapter
     {
-        public MyPagerAdapter(Android.Support.V4.App.FragmentManager fm):base(fm){}
+        public string SongFilter
+        {
+            set
+            {
+                var fragment = (ByTitleFragment)fragments[1];
+                fragment.Author = value;
+            }
+        }
+        private Android.Support.V4.App.Fragment[] fragments;
+        public MyPagerAdapter(Android.Support.V4.App.FragmentManager fm):base(fm)
+        {
+            fragments = new Android.Support.V4.App.Fragment[2];
+        }
 
         public override int Count { get { return 2; }}
 
         public override Android.Support.V4.App.Fragment GetItem(int position)
         {
-            if (position == 0) return new ByAuthorFragment();
-            else return new ByTitleFragment();
+            switch(position)
+            {
+                case 0:
+                    return new ByAuthorFragment();
+                default:
+                    return new ByTitleFragment();
+            }
+        }
+        public override Java.Lang.Object InstantiateItem(ViewGroup container, int position)
+        {
+            var inst= base.InstantiateItem(container, position);
+  
+            switch (position)
+            {
+                case 0:
+                    fragments[0] = (ByAuthorFragment)inst;
+                    break;
+                case 1:
+                    fragments[1] = (ByTitleFragment)inst;
+                    break;
+            }
+            return inst;
         }
     }
     public class MyNavigationDrawer:MyDrawer
@@ -114,7 +150,6 @@ namespace Ogniskownik
         {
             base.OnDrawerSlide(drawerView,slideOffset);
         }
-
     }
 }
 

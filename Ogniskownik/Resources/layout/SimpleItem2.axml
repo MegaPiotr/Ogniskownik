@@ -27,6 +27,7 @@
             android:textSize="25sp"
             android:layout_margin="5dp"
             android:layout_gravity="center"
+            android:textColor="@color/Text"
             android:gravity="left" />
         <TextView
             android:id="@+id/text2"
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:textColor="#00FF00"
+            android:textColor="@color/Text2"
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:gravity="right" />
