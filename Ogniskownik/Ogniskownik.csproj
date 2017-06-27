@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="ByAuthorFragment.cs" />
     <Compile Include="ByTitleFragment.cs" />
+    <Compile Include="ChordBookActivity.cs" />
     <Compile Include="IDataHelper.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -95,6 +96,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SongItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ChordBook.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
