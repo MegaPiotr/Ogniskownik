@@ -48,15 +48,15 @@ namespace Ogniskownik
     public class SongArrayAdapter : BaseAdapter<MyListItem>
     {
         public bool ChordVisibility { get; set; }
-        private Context mcontext;
-        private List<MyListItem> mdata;
+        private Context mContext;
+        private List<MyListItem> mData;
         private string mText;
 
         public SongArrayAdapter(Context context, string text)
         {
-            mcontext = context;
+            mContext = context;
             mText = text.Trim();
-            mdata = new List<MyListItem>();
+            mData = new List<MyListItem>();
             using (StringReader reader = new StringReader(mText))
             {
                 string line = reader.ReadLine();
@@ -66,25 +66,23 @@ namespace Ogniskownik
                     MyListItem item = new MyListItem() { text = data[0] };
                     if (data.Length > 1)
                         item.chords = data[1];
-                    mdata.Add(item);
+                    mData.Add(item);
                     line = reader.ReadLine();
                 }
             }
         }
-        public override MyListItem this[int position] { get { return mdata[position]; } }
-        public override int Count { get { return mdata.Count; } }
-        public override long GetItemId(int position) { return position; }
+        public override MyListItem this[int position]=>mData[position];
+        public override int Count=>mData.Count;
+        public override long GetItemId(int position)=>position;
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             if (convertView == null)
-            {
-                convertView = LayoutInflater.From(mcontext).Inflate(Resource.Layout.SongItem, null, false);
-            }
+                convertView = LayoutInflater.From(mContext).Inflate(Resource.Layout.SongItem, null, false);
             var textView1 = convertView.FindViewById<TextView>(Resource.Id.text1);
             var textView2 = convertView.FindViewById<TextView>(Resource.Id.text2);
-            textView1.Text = mdata[position].text;
-            textView2.Text = mdata[position].chords;
+            textView1.Text = mData[position].text;
+            textView2.Text = mData[position].chords;
             return convertView;
         }
     }

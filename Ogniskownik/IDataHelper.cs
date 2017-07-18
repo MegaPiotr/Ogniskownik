@@ -14,10 +14,10 @@ namespace Ogniskownik
 {
     public interface IDataHelper
     {
-        List<string> getAuthors();
-        List<Song> getSongs(string author);
-        List<Song> getSongs();
-        string getSongInfo(string author, string title);
-        string getSongInfo(Song song);
+        List<string> GetAuthors();
+        List<Song> GetSongs(string author);
+        List<Song> GetSongs();
+        string GetSongInfo(string author, string title);
+        string GetSongInfo(Song song);
     }
 }

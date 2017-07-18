@@ -751,8 +751,8 @@ namespace Ogniskownik
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0a0041
-			public const int Chords = 2131361857;
+			// aapt resource value: 0x7f0a0040
+			public const int Chords = 2131361856;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int ChordsText = 2131361855;
@@ -760,8 +760,8 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0a003c
 			public const int Content = 2131361852;
 			
-			// aapt resource value: 0x7f0a0040
-			public const int Drawer = 2131361856;
+			// aapt resource value: 0x7f0a0041
+			public const int Drawer = 2131361857;
 			
 			// aapt resource value: 0x7f0a003d
 			public const int Text = 2131361853;
@@ -1465,16 +1465,34 @@ namespace Ogniskownik
 			public const int abc_textfield_search_material = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int Icon = 2130837580;
+			public const int adur_1 = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int note = 2130837581;
-			
-			// aapt resource value: 0x7f02004f
-			public const int notification_template_icon_bg = 2130837583;
+			public const int adur_3 = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int singer = 2130837582;
+			public const int adur_4 = 2130837582;
+			
+			// aapt resource value: 0x7f02004f
+			public const int amol_1 = 2130837583;
+			
+			// aapt resource value: 0x7f020050
+			public const int amol_3 = 2130837584;
+			
+			// aapt resource value: 0x7f020051
+			public const int ic_folder = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int Icon = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int note = 2130837587;
+			
+			// aapt resource value: 0x7f020055
+			public const int notification_template_icon_bg = 2130837589;
+			
+			// aapt resource value: 0x7f020054
+			public const int singer = 2130837588;
 			
 			static Drawable()
 			{
@@ -1489,8 +1507,11 @@ namespace Ogniskownik
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0b0056
-			public const int action0 = 2131427414;
+			// aapt resource value: 0x7f0b0053
+			public const int GridView = 2131427411;
+			
+			// aapt resource value: 0x7f0b005c
+			public const int action0 = 2131427420;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int action_bar = 2131427393;
@@ -1516,8 +1537,8 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b0042
 			public const int action_context_bar = 2131427394;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int action_divider = 2131427418;
+			// aapt resource value: 0x7f0b0060
+			public const int action_divider = 2131427424;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -1549,14 +1570,17 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b002b
 			public const int buttonPanel = 2131427371;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int cancel_action = 2131427415;
+			// aapt resource value: 0x7f0b005d
+			public const int cancel_action = 2131427421;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int checkbox = 2131427385;
 			
-			// aapt resource value: 0x7f0b005d
-			public const int chronometer = 2131427421;
+			// aapt resource value: 0x7f0b0051
+			public const int chordGridView = 2131427409;
+			
+			// aapt resource value: 0x7f0b0063
+			public const int chronometer = 2131427427;
 			
 			// aapt resource value: 0x7f0b001d
 			public const int collapseActionView = 2131427357;
@@ -1576,11 +1600,14 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b0027
 			public const int default_activity_button = 2131427367;
 			
+			// aapt resource value: 0x7f0b0055
+			public const int description = 2131427413;
+			
 			// aapt resource value: 0x7f0b000c
 			public const int disableHome = 2131427340;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int drawer_layout = 2131427411;
+			// aapt resource value: 0x7f0b0052
+			public const int drawer_layout = 2131427410;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int edit_query = 2131427395;
@@ -1588,14 +1615,17 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b001a
 			public const int end = 2131427354;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int end_padder = 2131427426;
+			// aapt resource value: 0x7f0b0068
+			public const int end_padder = 2131427432;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int expand_activities_button = 2131427365;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int expanded_menu = 2131427384;
+			
+			// aapt resource value: 0x7f0b0057
+			public const int grid_item_label = 2131427415;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int home = 2131427332;
@@ -1612,29 +1642,35 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b0026
 			public const int image = 2131427366;
 			
+			// aapt resource value: 0x7f0b0056
+			public const int imageView = 2131427414;
+			
+			// aapt resource value: 0x7f0b0067
+			public const int info = 2131427431;
+			
+			// aapt resource value: 0x7f0b0058
+			public const int label = 2131427416;
+			
+			// aapt resource value: 0x7f0b0054
+			public const int left_drawer = 2131427412;
+			
 			// aapt resource value: 0x7f0b0061
-			public const int info = 2131427425;
+			public const int line1 = 2131427425;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int left_drawer = 2131427413;
-			
-			// aapt resource value: 0x7f0b005b
-			public const int line1 = 2131427419;
-			
-			// aapt resource value: 0x7f0b005f
-			public const int line3 = 2131427423;
+			// aapt resource value: 0x7f0b0065
+			public const int line3 = 2131427429;
 			
 			// aapt resource value: 0x7f0b0009
 			public const int listMode = 2131427337;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int listView = 2131427408;
+			// aapt resource value: 0x7f0b0059
+			public const int listView = 2131427417;
 			
 			// aapt resource value: 0x7f0b0028
 			public const int list_item = 2131427368;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int media_actions = 2131427417;
+			// aapt resource value: 0x7f0b005f
+			public const int media_actions = 2131427423;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int middle = 2131427355;
@@ -1651,8 +1687,8 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b000a
 			public const int normal = 2131427338;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int pager = 2131427412;
+			// aapt resource value: 0x7f0b005b
+			public const int pager = 2131427419;
 			
 			// aapt resource value: 0x7f0b002d
 			public const int parentPanel = 2131427373;
@@ -1723,8 +1759,8 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b0011
 			public const int showTitle = 2131427345;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int songlist = 2131427428;
+			// aapt resource value: 0x7f0b006a
+			public const int songlist = 2131427434;
 			
 			// aapt resource value: 0x7f0b002c
 			public const int spacer = 2131427372;
@@ -1741,32 +1777,32 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b0018
 			public const int src_over = 2131427352;
 			
-			// aapt resource value: 0x7f0b0058
-			public const int status_bar_latest_event_content = 2131427416;
+			// aapt resource value: 0x7f0b005e
+			public const int status_bar_latest_event_content = 2131427422;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int submit_area = 2131427404;
 			
-			// aapt resource value: 0x7f0b0051
-			public const int switch1 = 2131427409;
+			// aapt resource value: 0x7f0b005a
+			public const int switch1 = 2131427418;
 			
 			// aapt resource value: 0x7f0b000b
 			public const int tabMode = 2131427339;
 			
-			// aapt resource value: 0x7f0b0060
-			public const int text = 2131427424;
+			// aapt resource value: 0x7f0b0066
+			public const int text = 2131427430;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int text1 = 2131427427;
+			// aapt resource value: 0x7f0b0069
+			public const int text1 = 2131427433;
 			
-			// aapt resource value: 0x7f0b005e
-			public const int text2 = 2131427422;
+			// aapt resource value: 0x7f0b0064
+			public const int text2 = 2131427428;
 			
 			// aapt resource value: 0x7f0b0034
 			public const int textSpacerNoButtons = 2131427380;
 			
-			// aapt resource value: 0x7f0b005c
-			public const int time = 2131427420;
+			// aapt resource value: 0x7f0b0062
+			public const int time = 2131427426;
 			
 			// aapt resource value: 0x7f0b002a
 			public const int title = 2131427370;
@@ -1774,8 +1810,8 @@ namespace Ogniskownik
 			// aapt resource value: 0x7f0b002f
 			public const int title_template = 2131427375;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int toolbar = 2131427410;
+			// aapt resource value: 0x7f0b0050
+			public const int toolbar = 2131427408;
 			
 			// aapt resource value: 0x7f0b002e
 			public const int topPanel = 2131427374;
@@ -1909,61 +1945,70 @@ namespace Ogniskownik
 			public const int abc_select_dialog_material = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int ChordBook = 2130903065;
+			public const int Chord = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int ListViewLayout = 2130903066;
+			public const int ChordBook = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int Main = 2130903067;
+			public const int ChordItem = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int notification_media_action = 2130903068;
+			public const int GridFolderItem = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int notification_media_cancel_action = 2130903069;
+			public const int ListViewLayout = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int notification_template_big_media = 2130903070;
+			public const int Main = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int notification_template_big_media_narrow = 2130903071;
+			public const int notification_media_action = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int notification_template_lines = 2130903072;
+			public const int notification_media_cancel_action = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int notification_template_media = 2130903073;
+			public const int notification_template_big_media = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int notification_template_part_chronometer = 2130903074;
+			public const int notification_template_big_media_narrow = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int notification_template_part_time = 2130903075;
+			public const int notification_template_lines = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int select_dialog_item_material = 2130903076;
+			public const int notification_template_media = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int select_dialog_multichoice_material = 2130903077;
+			public const int notification_template_part_chronometer = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int select_dialog_singlechoice_material = 2130903078;
+			public const int notification_template_part_time = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int SimpleItem1 = 2130903079;
+			public const int select_dialog_item_material = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int SimpleItem2 = 2130903080;
+			public const int select_dialog_multichoice_material = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int Song = 2130903081;
+			public const int select_dialog_singlechoice_material = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int SongItem = 2130903082;
+			public const int SimpleItem1 = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int support_simple_spinner_dropdown_item = 2130903083;
+			public const int SimpleItem2 = 2130903083;
+			
+			// aapt resource value: 0x7f03002c
+			public const int Song = 2130903084;
+			
+			// aapt resource value: 0x7f03002d
+			public const int SongItem = 2130903085;
+			
+			// aapt resource value: 0x7f03002e
+			public const int support_simple_spinner_dropdown_item = 2130903086;
 			
 			static Layout()
 			{
@@ -2812,6 +2857,9 @@ namespace Ogniskownik
 			
 			// aapt resource value: 0x7f0800f7
 			public const int ThemeOverlay_AppCompat_Light = 2131230967;
+			
+			// aapt resource value: 0x7f080140
+			public const int ToolBarStyle = 2131231040;
 			
 			// aapt resource value: 0x7f0800f8
 			public const int Widget_AppCompat_ActionBar = 2131230968;

@@ -13,39 +13,38 @@ using Android.Widget;
 using System.IO;
 using Android.Graphics;
 using Android.Support.V4.View;
+using Android.Support.V4.Content;
 
 namespace Ogniskownik
 {
     public class ByTitleFragment : Android.Support.V4.App.Fragment
     {
-        private List<Song> songs;
-        private SingleArrayAdapter2 adapter;
-        private Switch switch1;
+        private List<Song> mSongs;
+        private SingleArrayAdapter2 mAdapter;
+        private Switch mSwitch;
         private string mAuthor;
+
         public string Author{
             set
             {
-                using (StreamReader sr = new StreamReader(this.Activity.Assets.Open("songs.xml")))
-                {
-                    XmlDataHelper helper = new XmlDataHelper(sr);
+                    XmlDataHelper helper = new XmlDataHelper();
                     if (String.IsNullOrEmpty(value))
                     {
-                        switch1.Visibility = ViewStates.Gone;
-                        switch1.Checked = false;
-                        songs.Clear();
-                        songs.AddRange(helper.getSongs());
+                        mSwitch.Visibility = ViewStates.Gone;
+                        mSwitch.Checked = false;
+                        mSongs.Clear();
+                        mSongs.AddRange(helper.GetSongs());
                     }
                     else
                     {
-                        switch1.Visibility = ViewStates.Visible;
-                        switch1.Checked = true;
-                        songs.Clear();
-                        songs.AddRange(helper.getSongs(value));
-                        switch1.Text = "Wykonawca: "+value;
+                        mSwitch.Visibility = ViewStates.Visible;
+                        mSwitch.Checked = true;
+                        mSongs.Clear();
+                        mSongs.AddRange(helper.GetSongs(value));
+                        mSwitch.Text = "Wykonawca: "+value;
                     }
                     mAuthor = value;
-                    adapter.NotifyDataSetChanged();
-                }
+                    mAdapter.NotifyDataSetChanged();
             }
         }
         public override void OnCreate(Bundle savedInstanceState)
@@ -59,28 +58,27 @@ namespace Ogniskownik
             base.OnCreateView(inflater, container, savedInstanceState);
 
             var view = inflater.Inflate(Resource.Layout.ListViewLayout, container, false);
-            switch1 = view.FindViewById<Switch>(Resource.Id.switch1);
-            switch1.CheckedChange += delegate (object sender, CompoundButton.CheckedChangeEventArgs e) {
+            mSwitch = view.FindViewById<Switch>(Resource.Id.switch1);
+            mSwitch.CheckedChange += delegate (object sender, CompoundButton.CheckedChangeEventArgs e) {
                 if (!e.IsChecked)
                     Author = null;
             };
-            songs = new List<Song>();
+            mSongs = new List<Song>();
             ListView listView = view.FindViewById<ListView>(Resource.Id.listView);
-            adapter = new SingleArrayAdapter2(this.Activity, songs);
-            listView.Adapter = adapter;
+            mAdapter = new SingleArrayAdapter2(this.Activity, mSongs);
+            listView.Adapter = mAdapter;
             if (savedInstanceState == null)
                 Author = null;
             else
                 Author = savedInstanceState.GetString("author");
             listView.ItemClick+= (object sender, AdapterView.ItemClickEventArgs e) => {
                 var activity = new Intent(this.Activity, typeof(SongActivity));
-                Song selected = adapter[e.Position];
+                Song selected = mAdapter[e.Position];
                 string info = "";
-                using (StreamReader reader = new StreamReader(this.Activity.Assets.Open("songs.xml")))
-                {
-                    IDataHelper helper = new XmlDataHelper(reader);
-                    info=helper.getSongInfo(selected);
-                }
+           
+                IDataHelper helper = new XmlDataHelper();
+                info=helper.GetSongInfo(selected);
+                
                 activity.PutExtra("SongInfo", info);
                 StartActivity(activity);
             };
@@ -96,31 +94,29 @@ namespace Ogniskownik
     }
     public class SingleArrayAdapter2 : BaseAdapter<Song>
     {
-        private Context mcontext;
+        private Context mContext;
         private List<Song> mdata;
 
         public SingleArrayAdapter2(Context context, List<Song> data)
         {
             mdata = data;
-            mcontext = context;
+            mContext = context;
         }
-        public override Song this[int position]{get{return mdata[position];}}
-        public override int Count{get{return mdata.Count;}}
-        public override long GetItemId(int position){return position;}
+        public override Song this[int position]=>mdata[position];
+        public override int Count=>mdata.Count;
+        public override long GetItemId(int position)=>position;
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             if (convertView == null)
-            {
-                convertView = LayoutInflater.From(mcontext).Inflate(Resource.Layout.SimpleItem2, null, false);
-            }
+                convertView = LayoutInflater.From(mContext).Inflate(Resource.Layout.SimpleItem2, null, false);
             var textView1 = convertView.FindViewById<TextView>(Resource.Id.text1);
             var textView2 = convertView.FindViewById<TextView>(Resource.Id.text2);
             textView1.Text = mdata[position].Title;
             textView2.Text = mdata[position].Author;
 
-            var forecastImage = convertView.FindViewById<ImageView>(Resource.Id.image);          
-            forecastImage.SetColorFilter(Color.White);
+            var forecastImage = convertView.FindViewById<ImageView>(Resource.Id.image);
+            forecastImage.SetColorFilter(new Color(ContextCompat.GetColor(mContext,Resource.Color.Text)));
             return convertView;
         }
     }

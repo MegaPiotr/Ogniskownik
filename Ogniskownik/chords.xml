@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<chords_arrays>
+  <chords_array name="a">
+    <chord 
+      name="a"
+      resource="amol_1"/>
+    <chord
+      name="a"
+      resource="amol_3"/>
+    <chord
+      name="A"
+      resource="adur_1"/>
+    <chord
+      name="A"
+      resource="adur_3"/>
+    <chord
+      name="A"
+      resource="adur_4"/>
+  </chords_array>
+</chords_arrays>

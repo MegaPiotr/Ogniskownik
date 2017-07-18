@@ -13,6 +13,7 @@ using Android.Widget;
 using System.IO;
 using Android.Graphics;
 using Android.Support.V4.View;
+using Android.Support.V4.Content;
 
 namespace Ogniskownik
 {
@@ -35,11 +36,9 @@ namespace Ogniskownik
             var view = inflater.Inflate(Resource.Layout.ListViewLayout, container, false);
 
             List<string> authors;
-            using (StreamReader sr = new StreamReader(this.Activity.Assets.Open("songs.xml")))
-            {
-                XmlDataHelper helper = new XmlDataHelper(sr);
-                authors = helper.getAuthors();
-            }
+            XmlDataHelper helper = new XmlDataHelper();
+            authors = helper.GetAuthors();
+      
             ListView listView = view.FindViewById<ListView>(Resource.Id.listView);
             var adapter = new SingleArrayAdapter(this.Activity,authors);
             listView.Adapter = adapter;
@@ -55,28 +54,27 @@ namespace Ogniskownik
     }
     public class SingleArrayAdapter : BaseAdapter<string>
     {
-        private Context mcontext;
-        private List<string> mdata;
+        private Context mContext;
+        private List<string> mData;
 
         public SingleArrayAdapter(Context context,List<string>data)
         {
-            mdata = data;
-            mcontext = context;
+            mData = data;
+            mContext = context;
         }
-        public override string this[int position]{get{return mdata[position];}}
-        public override int Count{get{return mdata.Count;}}
-        public override long GetItemId(int position){return position;}
+        public override string this[int position]=>mData[position];
+        public override int Count=>mData.Count;
+        public override long GetItemId(int position)=>position;
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             if(convertView==null)
-            {
-                convertView=LayoutInflater.From(mcontext).Inflate(Resource.Layout.SimpleItem1, null, false);
-            }
+                convertView=LayoutInflater.From(mContext).Inflate(Resource.Layout.SimpleItem1, null, false);
+            
             var textView=convertView.FindViewById<TextView>(Resource.Id.text1);
-            textView.Text = mdata[position];
+            textView.Text = mData[position];
             var forecastImage = convertView.FindViewById<ImageView>(Resource.Id.image);
-            forecastImage.SetColorFilter(Color.White);
+            forecastImage.SetColorFilter(new Color(ContextCompat.GetColor(mContext, Resource.Color.Text)));
             return convertView;
         }
     }

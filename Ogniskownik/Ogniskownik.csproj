@@ -67,8 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawerActivity.cs" />
     <Compile Include="ByAuthorFragment.cs" />
     <Compile Include="ByTitleFragment.cs" />
+    <Compile Include="ChordActivity.cs" />
     <Compile Include="ChordBookActivity.cs" />
     <Compile Include="IDataHelper.cs" />
     <Compile Include="MainActivity.cs" />
@@ -101,6 +103,15 @@
     <AndroidResource Include="Resources\layout\ChordBook.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\GridFolderItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ChordItem.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Chord.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -122,9 +133,9 @@
     <AndroidResource Include="Resources\drawable\aaa.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\songs.xml">
+    <EmbeddedResource Include="songs.xml">
       <SubType>Designer</SubType>
-    </AndroidAsset>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\note.png" />
@@ -133,6 +144,7 @@
     <AndroidResource Include="Resources\drawable\singer.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\chords\" />
     <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +156,27 @@
     <AndroidResource Include="Resources\values\Colors.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="chords.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\amol_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\adur_3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\adur_4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\amol_1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\adur_1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
